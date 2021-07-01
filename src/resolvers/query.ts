@@ -25,6 +25,26 @@ const query: IResolvers = {
         });
       return response;
     },
+    players(__: void, { page }): any {
+      const response = fetch(
+        `https://free-nba.p.rapidapi.com/players?per_page=50&page=${page}`,
+        {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key": `${apiKey}`,
+            "x-rapidapi-host": `${apiHost}`,
+          },
+        },
+      )
+        .then((res) => res.json())
+        .then((results) => results.data)
+        .catch(
+          (error) => {
+            console.log(error);
+          },
+        );
+      return response;
+    },
   },
 };
 

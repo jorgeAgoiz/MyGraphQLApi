@@ -1,13 +1,25 @@
 type Query {
     teams: [Team!]!
+    players(page: String!): [Player!]!
 }
 
 type Team {
     id: ID!
-    abbreviation: String
-    city: String
-    conference: String
-    division: String
-    full_name: String
-    name: String
+    abbreviation: String!
+    city: String!
+    conference: String!
+    division: String!
+    full_name: String!
+    name: String!
+}
+
+type Player {
+    id: ID!,
+    first_name: String!,
+    height_feet: String,
+    height_inches: String,
+    last_name: String!,
+    position: String,
+    team: Team!,
+    weight_pounds: String
 }

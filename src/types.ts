@@ -7,3 +7,14 @@ export interface Team {
   full_name: string;
   name: string;
 }
+
+export interface Player {
+  id: number;
+  first_name: string;
+  height_feet: string | null;
+  height_inches: string | null;
+  last_name: string;
+  position: string | null;
+  team: Team;
+  weight_pounds: string | null;
+}
