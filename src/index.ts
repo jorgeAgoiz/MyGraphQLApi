@@ -1,14 +1,26 @@
 import express from "express";
+import "dotenv/config";
+import cors from "cors";
+import schema from "./schema/index";
+import { ApolloServer } from "apollo-server-express";
+import ExpressPlaygroundMiddleware from "graphql-playground-middleware-express";
 
 const app = express();
-
-const sum = (num1: number, num2: number): number => num1 + num2;
-
-app.get("/", (req, res) => {
-  console.log(sum(12, 6));
-  res.send("Hello World!!");
+const server = new ApolloServer({
+  schema,
+  introspection: true,
 });
 
-app.listen(3000, () => {
-  console.log("listening in port 3000...");
+app.use(cors());
+server.applyMiddleware({ app });
+
+app.get(
+  "/",
+  ExpressPlaygroundMiddleware({
+    endpoint: "/graphql",
+  }),
+);
+
+app.listen(process.env.PORT, () => {
+  console.log(`Listening in port ${process.env.PORT}...`);
 });

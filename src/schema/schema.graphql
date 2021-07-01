@@ -1,0 +1,13 @@
+type Query {
+    teams: [Team!]!
+}
+
+type Team {
+    id: ID!
+    abbreviation: String
+    city: String
+    conference: String
+    division: String
+    full_name: String
+    name: String
+}
