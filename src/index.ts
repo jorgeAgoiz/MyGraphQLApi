@@ -24,5 +24,3 @@ app.get(
 app.listen(process.env.PORT, () => {
   console.log(`Listening in port ${process.env.PORT}...`);
 });
-
-/* Manejo de errores */

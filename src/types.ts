@@ -15,6 +15,6 @@ export interface Player {
   height_inches: string | null;
   last_name: string;
   position: string | null;
-  team: Team;
+  team: Team | null;
   weight_pounds: string | null;
 }

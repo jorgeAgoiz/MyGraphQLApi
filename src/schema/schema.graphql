@@ -22,6 +22,6 @@ type Player {
     height_inches: String,
     last_name: String!,
     position: String,
-    team: Team!,
+    team: Team,
     weight_pounds: String
 }
